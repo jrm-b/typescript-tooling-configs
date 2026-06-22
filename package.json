@@ -1,0 +1,52 @@
+{
+  "name": "@jrm-b/typescript-tooling-configs",
+  "version": "0.1.0",
+  "description": "Typescript shared dev tooling configs.",
+  "license": "MIT",
+  "author": "jrmb",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    "./tsconfigs/*": "./dist/tsconfigs/*.json",
+    "./oxc/lint": "./dist/oxc/lint.mjs",
+    "./oxc/fmt": "./dist/oxc/fmt.mjs"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsdown",
+    "checks": "pnpm typecheck && pnpm lint",
+    "format": "oxfmt --write .",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix .",
+    "release": "pnpm build && release-it --ci",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@adonisjs/eslint-plugin": "^2.2.1",
+    "eslint-plugin-perfectionist": "^5.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "oxfmt": "^0.40.0",
+    "oxlint": "^1.55.0",
+    "tsdown": "^0.21.3",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "oxfmt": ">=0.40.0",
+    "oxlint": ">=1.55.0"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.5.0",
+      "onFail": "download"
+    }
+  }
+}
