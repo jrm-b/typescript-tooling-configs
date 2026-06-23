@@ -8,11 +8,21 @@
     "dist"
   ],
   "type": "module",
-  "main": "index.js",
+  "main": "./dist/index.mjs",
   "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.mts"
+    },
     "./tsconfigs/*": "./dist/tsconfigs/*.json",
-    "./oxc/lint": "./dist/oxc/lint.mjs",
-    "./oxc/fmt": "./dist/oxc/fmt.mjs"
+    "./oxc/lint": {
+      "import": "./dist/oxc/lint.mjs",
+      "types": "./dist/oxc/lint.d.mts"
+    },
+    "./oxc/fmt": {
+      "import": "./dist/oxc/fmt.mjs",
+      "types": "./dist/oxc/fmt.d.mts"
+    }
   },
   "publishConfig": {
     "access": "public",

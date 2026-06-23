@@ -4,5 +4,4 @@ coverage
 .vscode/
 *.log
 build
-dist
 .npmrc
